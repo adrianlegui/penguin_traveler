@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bl4ag2u2mvycl"]
+
+[ext_resource type="Script" uid="uid://bx47fbq12opd2" path="res://gd/goal/goal.gd" id="1_8u2o3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8u2o3"]
+size = Vector3(2, 10, 6)
+
+[node name="Goal" type="Area3D" unique_id=1388009934]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_8u2o3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1142955082]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1518367866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 0)
+shape = SubResource("BoxShape3D_8u2o3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1746367914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, 0)
+shape = SubResource("BoxShape3D_8u2o3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

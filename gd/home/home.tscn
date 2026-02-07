@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bej166jqvkjtw"]
+
+[ext_resource type="PackedScene" uid="uid://bxf4rvtlbjt18" path="res://gd/home/home.blend" id="1_r3tnh"]
+[ext_resource type="Script" uid="uid://bancv8qt1c6ep" path="res://gd/home/home.gd" id="2_3kc2x"]
+[ext_resource type="PackedScene" uid="uid://dee2wuh7va7lt" path="res://gd/mc/penguin.blend" id="2_obaxa"]
+[ext_resource type="Texture2D" uid="uid://crwxp0g2dd2pa" path="res://gd/textures/underground.png" id="4_s5jvc"]
+[ext_resource type="Texture2D" uid="uid://cs2oh2pdutj5k" path="res://gd/textures/ground.png" id="5_s5jvc"]
+[ext_resource type="PackedScene" uid="uid://coqljiccsmm4h" path="res://gd/ui/counter/counter_home.tscn" id="6_m58xb"]
+[ext_resource type="Theme" uid="uid://bwit57js0wc6" path="res://gd/theme/default.tres" id="6_s5jvc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_obaxa"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_6c4ip"]
+sky_material = SubResource("ProceduralSkyMaterial_obaxa")
+
+[sub_resource type="Environment" id="Environment_pmd77"]
+background_mode = 2
+sky = SubResource("Sky_6c4ip")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmd77"]
+albedo_texture = ExtResource("4_s5jvc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kc2x"]
+albedo_texture = ExtResource("5_s5jvc")
+
+[node name="home" unique_id=1575635835 node_paths=PackedStringArray("button_go_to_smoke_tests_map") instance=ExtResource("1_r3tnh")]
+script = ExtResource("2_3kc2x")
+button_go_to_smoke_tests_map = NodePath("HUB/Control/ButtonGoToSmokeTestsMap")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=267594957]
+transform = Transform3D(1, -1.5142069e-07, 8.742277e-08, 0, 0.49999997, 0.86602545, -1.7484555e-07, -0.86602545, 0.49999997, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=1439889653]
+environment = SubResource("Environment_pmd77")
+
+[node name="Ground" parent="." index="2" unique_id=767534881]
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_pmd77")
+surface_material_override/1 = SubResource("StandardMaterial3D_3kc2x")
+
+[node name="MC" parent="." index="3" unique_id=190660363 instance=ExtResource("2_obaxa")]
+
+[node name="Skeleton3D" parent="MC/Armature" parent_id_path=PackedInt32Array(190660363, 1929926287) index="0" unique_id=758210817]
+bones/2/rotation = Quaternion(-0.04482344, 0.70568466, 0.70568466, 0.04482366)
+bones/3/rotation = Quaternion(0.04482344, 0.70568466, 0.70568466, -0.04482366)
+bones/4/rotation = Quaternion(0.82931066, -0.11025271, 0.5036925, 0.2153654)
+bones/5/rotation = Quaternion(0.82931066, 0.11025271, -0.5036925, 0.2153654)
+
+[node name="AnimationPlayer" parent="MC" index="1" unique_id=1056251207]
+autoplay = &"Celebrate"
+
+[node name="Camera3D" type="Camera3D" parent="." index="4" unique_id=263272333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6625414, 2.577828)
+current = true
+
+[node name="HUB" type="Control" parent="." index="5" unique_id=1672233665]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_s5jvc")
+
+[node name="Control" type="VBoxContainer" parent="HUB" index="0" unique_id=1980496965]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonGoToSmokeTestsMap" type="Button" parent="HUB/Control" index="0" unique_id=494010138]
+layout_mode = 2
+text = "Go To SmokeTestsMap"
+
+[node name="ButtonGo" type="Button" parent="HUB/Control" index="1" unique_id=943294725]
+layout_mode = 2
+text = "Go to Travel"
+
+[node name="CounterHome" parent="HUB" index="1" unique_id=1909144558 instance=ExtResource("6_m58xb")]
+layout_mode = 1
+
+[connection signal="button_up" from="HUB/Control/ButtonGoToSmokeTestsMap" to="." method="_on_button_go_to_smoke_tests_map_button_up"]
+[connection signal="button_up" from="HUB/Control/ButtonGo" to="." method="_on_button_go_button_up"]
+
+[editable path="MC"]

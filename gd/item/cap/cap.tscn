@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dnrnmsdgyvmw5"]
+
+[ext_resource type="ArrayMesh" uid="uid://dn40hd00d57hd" path="res://gd/item/item_cap.res" id="1_81rf5"]
+
+[node name="Cap" type="MeshInstance3D" unique_id=1412054903]
+mesh = ExtResource("1_81rf5")

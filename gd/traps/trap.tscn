@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dq7ree24ag8we"]
+
+[ext_resource type="Script" uid="uid://fchurw5ecgbg" path="res://gd/traps/trap.gd" id="2_67xbk"]
+[ext_resource type="PackedScene" uid="uid://dxgagyc0fyekq" path="res://gd/traps/trap.blend" id="2_t1epe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_an623"]
+size = Vector3(2, 0.4, 0.1)
+
+[node name="Trap" type="Area3D" unique_id=1936486346]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_67xbk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=647694634]
+shape = SubResource("BoxShape3D_an623")
+
+[node name="trap" parent="." unique_id=145791022 instance=ExtResource("2_t1epe")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

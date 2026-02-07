@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6tb5bhcdy3lt"]
+
+[ext_resource type="Script" uid="uid://cdoqntsyusjpj" path="res://gd/messenger/messenger.gd" id="1_y2f25"]
+
+[node name="Messenger" type="Node" unique_id=1122802720]
+script = ExtResource("1_y2f25")

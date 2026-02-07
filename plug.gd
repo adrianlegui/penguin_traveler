@@ -4,4 +4,4 @@ extends "res://addons/gd-plug/plug.gd"
 
 
 func _plugging():
-	pass
+	plug("ramokz/phantom-camera", {"tag": "v0.10"})

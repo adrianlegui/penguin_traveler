@@ -27,7 +27,7 @@
 *.txt      text
 *.sql      text
 # Graphics
-*.png      binary
+*.png filter=lfs diff=lfs merge=lfs -text
 *.jpg      binary
 *.jpeg     binary
 *.gif      binary
@@ -41,7 +41,7 @@
 # use the following line instead.
 # *.svg    binary
 *.eps      binary
-*.blend    binary
+*.blend filter=lfs diff=lfs merge=lfs -text
 *.fbx      binary
 # Scripts
 *.bash     text eol=lf
@@ -84,6 +84,6 @@ test export-ignore
 *.mesh      binary
 *.material  binary
 *.scn       binary
-*.res       binary
+*.res filter=lfs diff=lfs merge=lfs -text
 *.shape     binary
 *.anim      binary

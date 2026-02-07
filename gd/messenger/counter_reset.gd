@@ -1,0 +1,1 @@
+class_name CounterReset extends Message

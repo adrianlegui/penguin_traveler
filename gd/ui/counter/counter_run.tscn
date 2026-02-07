@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bosebf6ld3bqs"]
+
+[ext_resource type="PackedScene" uid="uid://6funlwc5tqyv" path="res://gd/ui/counter/counter.tscn" id="1_1dt5o"]
+[ext_resource type="Script" uid="uid://bvtmdnnafg8i3" path="res://gd/ui/counter/counter_run.gd" id="2_dirxh"]
+
+[node name="CounterRun" unique_id=1909144558 node_paths=PackedStringArray("label") instance=ExtResource("1_1dt5o")]
+script = ExtResource("2_dirxh")
+label = NodePath("HBoxContainer/Label")

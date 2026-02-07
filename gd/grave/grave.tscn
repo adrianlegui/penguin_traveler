@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cyo0vp3otd0uf"]
+
+[ext_resource type="PackedScene" uid="uid://du28hjbq2rnxq" path="res://gd/grave/grave.blend" id="1_gxhmo"]
+[ext_resource type="PackedScene" uid="uid://dee2wuh7va7lt" path="res://gd/mc/penguin.blend" id="2_ayy63"]
+[ext_resource type="Script" uid="uid://c4j053krwt0mn" path="res://gd/grave/grave.gd" id="2_nt0ql"]
+[ext_resource type="Theme" uid="uid://bwit57js0wc6" path="res://gd/theme/default.tres" id="6_hp662"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nt0ql"]
+sky_top_color = Color(0.5, 0.5, 0.5, 1)
+sky_horizon_color = Color(0.541625, 0.541625, 0.541625, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.541625, 0.541625, 0.541625, 1)
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_ou0wn"]
+sky_material = SubResource("ProceduralSkyMaterial_nt0ql")
+
+[sub_resource type="Environment" id="Environment_p64au"]
+background_mode = 2
+sky = SubResource("Sky_ou0wn")
+
+[node name="Grave" unique_id=542299318 node_paths=PackedStringArray("mc", "button_ressurect") instance=ExtResource("1_gxhmo")]
+script = ExtResource("2_nt0ql")
+mc = NodePath("MC")
+button_ressurect = NodePath("Control/ButtonResurrect")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=546073178]
+environment = SubResource("Environment_p64au")
+
+[node name="Camera3D" type="Camera3D" parent="." index="4" unique_id=1169204737]
+transform = Transform3D(1, 0, 0, 0, 0.99560124, 0.093691304, 0, -0.093691304, 0.99560124, 0, 1.4309947, 4.027722)
+current = true
+
+[node name="MC" parent="." index="5" unique_id=190660363 node_paths=PackedStringArray("root", "skeleton_3d", "animation_player") instance=ExtResource("2_ayy63")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18049008, 1.0404818)
+visible = false
+root = NodePath("Armature")
+skeleton_3d = NodePath("Armature/Skeleton3D")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Control" type="Control" parent="." index="6" unique_id=1133193958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_hp662")
+
+[node name="ButtonResurrect" type="Button" parent="Control" index="0" unique_id=1186887004]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.1
+anchor_right = 0.6
+anchor_bottom = 0.2
+offset_top = 450.2
+offset_bottom = 450.19998
+text = "Resurrect"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="7" unique_id=319162997]
+transform = Transform3D(1, 0, 0, 0, 0.9958081, 0.09146686, 0, -0.09146686, 0.9958081, 0, 1.0206189, 3.6126928)
+light_energy = 10.0
+spot_range = 4.4999785
+spot_angle = 34.828014
+
+[connection signal="button_up" from="Control/ButtonResurrect" to="." method="_on_button_button_up"]
+
+[editable path="MC"]

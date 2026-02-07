@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dnd1v6kj77fn7"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_irhqx"]
+[ext_resource type="Script" uid="uid://cskpdug7wo10m" path="res://gd/camera/camera.gd" id="1_iy7qb"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_iy7qb"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_f6xnr"]
+
+[sub_resource type="Resource" id="Resource_mh6ts"]
+script = ExtResource("3_f6xnr")
+
+[node name="Camera" type="Node" unique_id=1008242218 node_paths=PackedStringArray("PC3D")]
+process_mode = 4
+script = ExtResource("1_iy7qb")
+PC3D = NodePath("PhantomCamera3D")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=857873685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1280380183]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_irhqx")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1846524595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+top_level = true
+script = ExtResource("2_iy7qb")
+follow_mode = 2
+tween_resource = SubResource("Resource_mh6ts")
+follow_offset = Vector3(3, 1, 5)
+follow_damping = true
+follow_damping_value = Vector3(0.25, 0.25, 0.25)
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"

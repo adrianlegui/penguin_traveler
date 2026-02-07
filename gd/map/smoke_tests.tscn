@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dkwho46fey2ji"]
+
+[ext_resource type="PackedScene" uid="uid://dvcyscpohoe00" path="res://gd/map/smoke_tests.blend" id="1_dbde3"]
+[ext_resource type="PackedScene" uid="uid://bl4ag2u2mvycl" path="res://gd/goal/goal.tscn" id="3_fehwf"]
+[ext_resource type="Texture2D" uid="uid://cs2oh2pdutj5k" path="res://gd/textures/ground.png" id="4_p0wyt"]
+[ext_resource type="PackedScene" uid="uid://gqj7kbvf35eq" path="res://gd/coin/coin.tscn" id="4_ufcl3"]
+[ext_resource type="PackedScene" uid="uid://dq7ree24ag8we" path="res://gd/traps/trap.tscn" id="5_bs5r3"]
+[ext_resource type="Texture2D" uid="uid://crwxp0g2dd2pa" path="res://gd/textures/underground.png" id="5_urtnj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ufcl3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bs5r3"]
+sky_material = SubResource("ProceduralSkyMaterial_ufcl3")
+
+[sub_resource type="Environment" id="Environment_re1cv"]
+background_mode = 2
+sky = SubResource("Sky_bs5r3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lya00"]
+albedo_texture = ExtResource("4_p0wyt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0wyt"]
+albedo_texture = ExtResource("5_urtnj")
+
+[node name="smoke_tests" unique_id=47380718 node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_dbde3")]
+spawn_point = NodePath("Road/Start")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0" unique_id=822320300]
+environment = SubResource("Environment_re1cv")
+
+[node name="Road" parent="." index="1" unique_id=1511111053]
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_lya00")
+surface_material_override/1 = SubResource("StandardMaterial3D_p0wyt")
+
+[node name="Col " parent="Road" index="0" unique_id=734513586]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Goal" parent="Road/Goal" parent_id_path=PackedInt32Array(512867957) index="0" unique_id=1388009934 instance=ExtResource("3_fehwf")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2" unique_id=1653496059]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 5)
+shadow_enabled = true
+
+[node name="Collectables" type="Node3D" parent="." index="3" unique_id=1459473464]
+
+[node name="Coin" parent="Collectables" index="0" unique_id=124569316 instance=ExtResource("4_ufcl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Traps" type="Node3D" parent="." index="4" unique_id=556628918]
+
+[node name="ElectricTrap" parent="Traps" index="0" unique_id=1196897963 instance=ExtResource("5_bs5r3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.93159, 0.083013535, 0.021895409)

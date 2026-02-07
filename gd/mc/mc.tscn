@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dh4fror121t8w"]
+
+[ext_resource type="PackedScene" uid="uid://dee2wuh7va7lt" path="res://gd/mc/penguin.blend" id="1_yvvfl"]
+[ext_resource type="Script" uid="uid://i5mrihduib3u" path="res://gd/mc/fsm.gd" id="3_j1q3f"]
+[ext_resource type="PackedScene" uid="uid://bosebf6ld3bqs" path="res://gd/ui/counter/counter_run.tscn" id="4_uyt4s"]
+[ext_resource type="PackedScene" uid="uid://dom3w0g0x4aiy" path="res://gd/ui/controls/controls.tscn" id="5_q1hcb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yvvfl"]
+radius = 0.33447266
+height = 1.0317383
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yvvfl"]
+radius = 0.25
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hoqvv"]
+length = 0.75
+
+[node name="MC" unique_id=303022870 node_paths=PackedStringArray("root", "skeleton_3d", "ray_cast_3d", "animation_player") instance=ExtResource("1_yvvfl")]
+collision_layer = 2
+collision_mask = 5
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+root = NodePath("Armature")
+skeleton_3d = NodePath("Armature/Skeleton3D")
+ray_cast_3d = NodePath("RayCast3D")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1929926287) index="0" unique_id=758210817]
+show_rest_only = true
+bones/1/position = Vector3(0, 0.10685933, 0)
+bones/1/rotation = Quaternion(0.12859577, 0.0051037497, 0.039328247, 0.9909038)
+bones/2/rotation = Quaternion(-0.047448367, 0.6546767, 0.7525075, 0.053662572)
+bones/3/rotation = Quaternion(0.04482344, 0.70568466, 0.70568466, -0.04482366)
+bones/4/rotation = Quaternion(0.6244103, -0.3383228, 0.3891008, 0.5867283)
+bones/5/rotation = Quaternion(0.62441015, 0.33832288, -0.38910073, 0.58672845)
+bones/6/rotation = Quaternion(-3.6088745e-09, 4.656613e-10, 1.5509636e-25, 1)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1" unique_id=163241825]
+bone_name = "Body"
+bone_idx = 1
+
+[node name="Collector" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" unique_id=1562319123]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/Collector" index="0" unique_id=793593840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51381624, -0.039742798)
+shape = SubResource("CapsuleShape3D_yvvfl")
+
+[node name="CollisionShape3DSphere" type="CollisionShape3D" parent="." index="1" unique_id=2100372199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8125104, 0.0694561)
+shape = SubResource("SphereShape3D_yvvfl")
+
+[node name="CollisionShape3DRay" type="CollisionShape3D" parent="." index="2" unique_id=1448055931]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.75, 0)
+shape = SubResource("SeparationRayShape3D_hoqvv")
+
+[node name="AnimationPlayer" parent="." index="3" unique_id=1056251207]
+autoplay = &"Walking"
+
+[node name="FSM" type="Node" parent="." index="4" unique_id=1138671358 node_paths=PackedStringArray("c")]
+script = ExtResource("3_j1q3f")
+c = NodePath("..")
+where_process = 1
+metadata/_custom_type_script = "uid://c6c262ghg1uj4"
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="5" unique_id=150648299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 4
+
+[node name="CounterRun" parent="." index="6" unique_id=1909144558 instance=ExtResource("4_uyt4s")]
+
+[node name="Controls" parent="." index="7" unique_id=203585368 instance=ExtResource("5_q1hcb")]
+
+[connection signal="area_entered" from="Armature/Skeleton3D/BoneAttachment3D/Collector" to="." method="_on_collector_area_entered"]

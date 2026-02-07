@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dom3w0g0x4aiy"]
+
+[ext_resource type="Script" uid="uid://677uax4no4el" path="res://gd/ui/controls/controls.gd" id="1_ewc2n"]
+[ext_resource type="Texture2D" uid="uid://dixb0yd4w17jo" path="res://gd/ui/controls/jump.png" id="2_u3h1p"]
+[ext_resource type="Texture2D" uid="uid://b62jqq4vdeagp" path="res://gd/ui/controls/sprint.png" id="3_s4rat"]
+
+[node name="Controls" type="Control" unique_id=203585368]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ewc2n")
+
+[node name="TouchScreenButtonJump" type="TouchScreenButton" parent="." unique_id=1116036194]
+position = Vector2(968, 472.00003)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_u3h1p")
+action = "jump"
+
+[node name="TouchScreenButtonMove" type="TouchScreenButton" parent="." unique_id=120727431]
+position = Vector2(64, 472)
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_s4rat")
+action = "sprint"

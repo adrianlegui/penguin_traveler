@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cbnshjgfunrif"]
+
+[ext_resource type="PackedScene" uid="uid://dnrnmsdgyvmw5" path="res://gd/item/cap/cap.tscn" id="1_62ff2"]
+[ext_resource type="Script" uid="uid://cb5uf5ymah1x0" path="res://gd/item/item.gd" id="2_1lfkq"]
+
+[resource]
+script = ExtResource("2_1lfkq")
+equipable = true
+packed_scene = ExtResource("1_62ff2")
+metadata/_custom_type_script = "uid://cb5uf5ymah1x0"
