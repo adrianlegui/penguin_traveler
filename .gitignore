@@ -1,0 +1,64 @@
+# Created by https://www.toptal.com/developers/gitignore/api/godot,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=godot,visualstudiocode
+
+### Godot ###
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+.import/
+export.cfg
+*.depren
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+mono_crash.*.json
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/godot,visualstudiocode
+
+# Extra
+build/*
+addons/*
+!addons/gd-plug
+
+*.blend[0-9]*
+*.obj
+*.mtl
+
+.venv/*
+
+.plugged/*
+
+script_templates/*
+
+# build
+!build/.gdignore
+!build/android
+build/android/*
+!build/android/.gitkeep
+
+assets/
+assets
