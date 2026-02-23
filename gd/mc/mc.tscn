@@ -27,7 +27,7 @@ skeleton_3d = NodePath("Armature/Skeleton3D")
 ray_cast_3d = NodePath("RayCast3D")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1929926287) index="0" unique_id=758210817]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1927734862) index="0" unique_id=882973409]
 show_rest_only = true
 bones/1/position = Vector3(0, 0.10685933, 0)
 bones/1/rotation = Quaternion(0.12859577, 0.0051037497, 0.039328247, 0.9909038)
@@ -58,7 +58,7 @@ shape = SubResource("SphereShape3D_yvvfl")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.75, 0)
 shape = SubResource("SeparationRayShape3D_hoqvv")
 
-[node name="AnimationPlayer" parent="." index="3" unique_id=1056251207]
+[node name="AnimationPlayer" parent="." index="3" unique_id=2115474672]
 autoplay = &"Walking"
 
 [node name="FSM" type="Node" parent="." index="4" unique_id=1138671358 node_paths=PackedStringArray("c")]

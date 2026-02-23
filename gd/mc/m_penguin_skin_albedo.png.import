@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8412vhduct7p"
-path.s3tc="res://.godot/imported/penguin_a.png-37e563a7645c736ae1841841a316a28d.s3tc.ctex"
-path.etc2="res://.godot/imported/penguin_a.png-37e563a7645c736ae1841841a316a28d.etc2.ctex"
+uid="uid://dhgw1uxjwf31p"
+path.s3tc="res://.godot/imported/m_penguin_skin_albedo.png-4d84b2ab1505aa4ffe21f0d20792fbcf.s3tc.ctex"
+path.etc2="res://.godot/imported/m_penguin_skin_albedo.png-4d84b2ab1505aa4ffe21f0d20792fbcf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://gd/mc/penguin_a.png"
-dest_files=["res://.godot/imported/penguin_a.png-37e563a7645c736ae1841841a316a28d.s3tc.ctex", "res://.godot/imported/penguin_a.png-37e563a7645c736ae1841841a316a28d.etc2.ctex"]
+source_file="res://gd/mc/m_penguin_skin_albedo.png"
+dest_files=["res://.godot/imported/m_penguin_skin_albedo.png-4d84b2ab1505aa4ffe21f0d20792fbcf.s3tc.ctex", "res://.godot/imported/m_penguin_skin_albedo.png-4d84b2ab1505aa4ffe21f0d20792fbcf.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://d1a0vpk8v40ws"]
+
+[ext_resource type="Texture2D" uid="uid://dhgw1uxjwf31p" path="res://gd/mc/m_penguin_skin_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d04kmolgvs8ch" path="res://gd/mc/m_penguin_skin_orm.png" id="2"]
+
+[resource]
+albedo_texture = ExtResource("1")
+orm_texture = ExtResource("2")

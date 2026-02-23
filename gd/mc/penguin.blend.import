@@ -6208,6 +6208,13 @@ _subresources={
 "slices/amount": 0
 }
 },
+"materials": {
+"skin": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://gd/mc/m_penguin_skin.tres",
+"use_external/path": "uid://d1a0vpk8v40ws"
+}
+},
 "nodes": {
 "PATH:MeshBody": {
 "import/skip_import": true
